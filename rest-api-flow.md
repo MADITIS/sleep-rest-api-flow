@@ -1,4 +1,19 @@
+```mermaid
+sequenceDiagram
+  participant Client
+  participant Server
+  participant Database
+
+  Client->>+Server: GET /resource
+  Server->>+Database: SELECT * FROM table
+  Database-->>-Server: Return Data (JSON)
+  Server-->>-Client: 200 OK (JSON)
+
+
+```
+
 # Rest API Interaction Flow
+
 
 ## 1. Create User
 
@@ -25,6 +40,29 @@ Content-Type: application/json
 {
   "message": "User created successfully"
 }
+
+```
+```mermaid
+sequenceDiagram
+  participant Client
+  participant Server
+  participant Database
+
+  note over Client: Method: POST
+  note over Client: Endpoint: /api/users/create
+  note over Client: Headers
+  note over Client: Body: Request JSON Data
+
+  Client->>+Server: Send POST Request
+  Server->>Server: Parse Request Body
+  Server->>+Database: Create User in Database
+  Database-->>-Server: User Created
+  Server-->>-Client: Return HTTP Response (201 Created)
+
+  note over Client: Response:
+  note over Client: HTTP/1.1 201 Created
+  note over Client: Content-Type: application/json
+  note over Client: Response JSON Data
 
 ```
 
@@ -63,6 +101,30 @@ Content-Type: application/json
     }
   ]
 }
+```
+```mermaid
+sequenceDiagram
+  participant Client
+  participant Server
+  participant Database
+
+  note over Client: Method: GET
+  note over Client: Endpoint: /api/sleep/improvements
+  note over Client: Headers
+
+  Client->>+Server: Send GET Request
+  Server->>+Database: Query Improvements
+  Database-->>-Server: Return Improvements
+  Server-->>-Client: Return HTTP Response (200 OK)
+  
+  note over Client: Response:
+  note over Client: HTTP/1.1 200 OK
+  note over Client: Content-Type: application/json
+  note over Client: Response JSON Data
+
+  note over Server: Handle Database Interaction
+
+
 ```
 ---
 
@@ -103,7 +165,29 @@ Content-Type: application/json
   "message": "Improvement added successfully"
 }
 ```
+```mermaid
+sequenceDiagram
+  participant Client
+  participant Server
+  participant Database
 
+  note over Client: Method: POST
+  note over Client: Endpoint: /api/users/{userID}/improvement
+  note over Client: Parameters
+  note over Client: Headers
+  note over Client: Body: Request JSON Data
+
+  Client->>+Server: Send POST Request
+  Server->>Server: Parse Request Body
+  Server->>+Database: Add Improvement for User
+  Database-->>-Server: Improvement Added
+  Server-->>-Client: Return HTTP Response (201 Created)
+  
+  note over Client: Response:
+  note over Client: HTTP/1.1 201 Created
+  note over Client: Content-Type: application/json
+  note over Client: Response JSON Data
+```
 ## 4. Get Sleep Struggle Durations
 
 ### Request:
@@ -137,6 +221,29 @@ Content-Type: application/json
     }
   ]
 }
+```
+```mermaid
+sequenceDiagram
+  participant Client
+  participant Server
+  participant Database
+
+  note over Client: Method: GET
+  note over Client: Endpoint: /api/sleep/struggle-durations
+  note over Client: Headers
+
+  Client->>+Server: Send GET Request
+  Server->>+Database: Query Struggle Durations
+  Database-->>-Server: Return Durations
+  Server-->>-Client: Return HTTP Response (200 OK)
+  
+  note over Client: Response
+  note over Client: HTTP/1.1 200 OK
+  note over Client: Content-Type: application/json
+  note over Client: Response JSON Data
+
+  note over Server: Handle Database Interaction
+
 ```
 
 ---
@@ -176,6 +283,33 @@ Content-Type: application/json
   "message": "Struggling duration added successfully"
 }
 ```
+```mermaid
+sequenceDiagram
+  participant Client
+  participant Server
+  participant Database
+
+  note over Client: Method: POST
+  note over Client: Endpoint: /api/users/{userID}/struggle/duration
+  note over Client: Parameters
+  note over Client: Headers
+
+  Client->>+Server: Send POST Request
+  Server->>Server: Parse Request Body
+  Server->>+Database: Add Struggle Duration to User
+  Database-->>-Server: Struggle Duration Added
+  Server-->>-Client: Return HTTP Response (201 Created)
+  
+  note over Client: Body: Request JSON Data
+  note over Client: Response
+  note over Client: HTTP/1.1 201 Created
+  note over Client: Content-Type: application/json
+  note over Client: Response JSON Data
+
+  note over Server: Handle Database Interaction
+
+```
+
 ---
 ## 6. Set Sleep Time
 ### Request:
@@ -204,6 +338,33 @@ Content-Type: application/json
 {
   "message": "Sleep time added successfully"
 }
+```
+
+```mermaid
+sequenceDiagram
+  participant Client
+  participant Server
+  participant Database
+
+  note over Client: Method: POST
+  note over Client: Endpoint: /api/users/{userID}/sleep/time
+  note over Client: Parameters
+  note over Client: Headers
+  note over Client: Body: Request JSON Data
+
+  Client->>+Server: Send POST Request
+  Server->>Server: Parse Request Body
+  Server->>+Database: Add Sleep Time to User
+  Database-->>-Server: Sleep Time Added
+  Server-->>-Client: Return HTTP Response (200 OK)
+  
+  note over Client: Response
+  note over Client: HTTP/1.1 200 OK
+  note over Client: Content-Type: application/json
+  note over Client: Response JSON Data
+
+  note over Server: Handle Database Interaction
+
 ```
 ---
 ## 7. Set Wake Up Time
@@ -234,6 +395,33 @@ Content-Type: application/json
   "message": "wakeup time added successfully"
 }
 ```
+```mermaid
+sequenceDiagram
+  participant Client
+  participant Server
+  participant Database
+
+  note over Client: Method: POST
+  note over Client: Endpoint: /api/users/{userID}/wakeup/time
+  note over Client: Parameters
+  note over Client: Headers
+  note over Client: Body: Request JSON Data
+
+  Client->>+Server: Send POST Request
+  Server->>Server: Parse Request Body
+  Server->>+Database: Set Wake Up Time for User
+  Database-->>-Server: Wake Up Time Set
+  Server-->>-Client: Return HTTP Response (200 OK)
+  
+  note over Client: Response
+  note over Client: HTTP/1.1 200 OK
+  note over Client: Content-Type: application/json
+  note over Client: Response JSON Data
+
+  note over Server: Handle Database Interaction
+
+```
+
 ## 8. Post Sleep Hours
 ### Request:
 
@@ -262,6 +450,32 @@ Content-Type: application/json
   "message": "sleep hours added successfully"
 }
 ```
+```mermaid
+sequenceDiagram
+  participant Client
+  participant Server
+  participant Database
+
+  note over Client: Method: POST
+  note over Client: Endpoint: /api/users/{userID}/sleep/hours
+  note over Client: Parameters
+  note over Client: Headers
+  note over Client: Body: Request JSON Data
+
+  Client->>+Server: Send POST Request
+  Server->>Server: Parse Request Body
+  Server->>+Database: Add Sleep Hours to User
+  Database-->>-Server: Sleep Hours Added
+  Server-->>-Client: Return HTTP Response (200 OK)
+  
+  note over Client: Response
+  note over Client: HTTP/1.1 200 OK
+  note over Client: Content-Type: application/json
+  note over Client: Response JSON Data
+
+  note over Server: Handle Database Interaction
+
+```
 ## 9. Get Sleep Efficiency
 ### Request:
 
@@ -281,6 +495,32 @@ Content-Type: application/json
 {
   "sleepEfficiency": 85
 }
+```
+
+```mermaid
+sequenceDiagram
+  participant Client
+  participant Server
+  participant Database
+
+  note over Client: Method: GET
+  note over Client: Endpoint: /api/users/{userID}/sleep/efficiency
+  note over Client: Parameters
+  note over Client: Headers
+  note over Client: Body: Request JSON Data
+
+  Client->>+Server: Send GET Request
+  Server->>+Database: Retrieve Sleep Efficiency for User
+  Database-->>-Server: Sleep Efficiency Retrieved
+  Server-->>-Client: Return HTTP Response (200 OK)
+  
+  note over Client: Response
+  note over Client: HTTP/1.1 200 OK
+  note over Client: Content-Type: application/json
+  note over Client: Response JSON Data
+
+  note over Server: Handle Database Interaction
+
 ```
 
 ## Data Modeling
@@ -324,3 +564,36 @@ Content-Type: application/json
 | user_id (FK)            | integer        | User ID (Foreign Key)                      |
 | improvement (required)  | varchar(255)   | Description of sleep improvement (Required)|
 
+
+```mermaid
+erDiagram
+    User ||--o{ Improvement : has
+    Sleep ||--o{ Improvement : has
+    Sleep ||--o{ StruggleDurations : has
+
+    User {
+        int id
+        string name
+        int efficiency
+        int sleep_hours
+        time sleep_time
+        time wakeup_time
+        varchar(255) sleep_improvement
+    }
+    Sleep {
+        int id
+    }
+    StruggleDurations {
+        int id
+        int sleep_id
+        varchar(255) duration
+    }
+    Improvement {
+        int id
+        int sleep_id
+        int user_id
+        varchar(255) improvement
+    }
+
+
+```
