@@ -255,7 +255,7 @@ Content-Type: application/json
 ## 9. Get Sleep Efficiency
 ### Request:
 
-- Method: `POST`
+- Method: `GET`
 - Endpoint: `/api/users/{userID}/sleep/efficiency`
 - Headers:
     - `Accept: application/json`
