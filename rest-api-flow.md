@@ -270,3 +270,45 @@ Content-Type: application/json
   "sleepEfficiency": 85
 }
 ```
+
+## Data Modeling
+
+### User Table
+
+| Column                  | Type           | Description                                |
+|-------------------------|----------------|--------------------------------------------|
+| id                      | integer        | User ID (Primary Key)                      |
+| name (required)         | varchar(255)   | User's name (Required)                     |
+| efficiency              | integer        | Sleep efficiency                           |
+| sleep_hours             | integer        | Number of hours slept                       |
+| sleep_time              | time           | Time when user goes to bed                  |
+| wakeup_time             | time           | Time when user wakes up                     |
+| sleep_improvement  | varchar(255)   | Description of sleep improvement
+
+---
+
+### Sleep Table
+
+| Column                  | Type           | Description                                |
+|-------------------------|----------------|--------------------------------------------|
+| id                      | integer        | Sleep ID (Primary Key)                     |
+
+---
+### Struggle durations Table
+
+| Column                  | Type           | Description                                |
+|-------------------------|----------------|--------------------------------------------|
+| id                      | integer        | Struggle ID (Primary Key)                  |
+| sleep_id (FK)           | integer        | Sleep ID (Foreign Key)                     |
+| duration (required)     | varchar(255)   | Duration of sleep struggle (Required)      |
+
+---
+### Improvement Table
+
+| Column                  | Type           | Description                                |
+|-------------------------|----------------|--------------------------------------------|
+| id                      | integer        | Improvement ID (Primary Key)               |
+| sleep_id (FK)           | integer        | Sleep ID (Foreign Key)                     |
+| user_id (FK)            | integer        | User ID (Foreign Key)                      |
+| improvement (required)  | varchar(255)   | Description of sleep improvement (Required)|
+
