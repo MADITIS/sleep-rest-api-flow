@@ -71,7 +71,7 @@ Content-Type: application/json
 ### Request:
 
 - Method: `POST`
-- Endpoint: `/api/sleep/improvement/add`
+- Endpoint: `/api/users/{userID}/improvement`
 - Headers:
     - `Accept: application/json`
     - `Content-Type: application/json`
@@ -144,7 +144,7 @@ Content-Type: application/json
 ### Request:
 
 - Method: `POST`
-- Endpoint: `/api/sleep/struggle-durations`
+- Endpoint: `/api/users/{userID}/struggle/duration`
 - Headers:
     - `Accept: application/json`
     - `Content-Type: application/json`
@@ -155,7 +155,7 @@ Content-Type: application/json
 {
     "userID": "31",
     "durationID": 1
-    "duration": "I would go to sleep easily"
+    "duration": "More than 8 weeks"
 }
 
 ```
@@ -177,7 +177,7 @@ Content-Type: application/json
 ### Request:
 
 - Method: `POST`
-- Endpoint: `/api/sleep/bed-time`
+- Endpoint: `/api/users/{userID}/sleep/time`
 - Headers:
     - `Accept: application/json`
     - `Content-Type: application/json`
@@ -185,7 +185,6 @@ Content-Type: application/json
 
 ```json
 {
-  "userID": 23,
   "time": "3:00"
 }
 ```
@@ -205,7 +204,7 @@ Content-Type: application/json
 ### Request:
 
 - Method: `POST`
-- Endpoint: `/api/sleep/wakeup-time`
+- Endpoint: `/api/users/{userID}/wakeup/time`
 - Headers:
     - `Accept: application/json`
     - `Content-Type: application/json`
@@ -213,7 +212,6 @@ Content-Type: application/json
 
 ```json
 {
-  "userID": 23,
   "time": "10:00"
 }
 ```
@@ -232,7 +230,7 @@ Content-Type: application/json
 ### Request:
 
 - Method: `POST`
-- Endpoint: `/api/sleep/hours`
+- Endpoint: `/api/users/{userID}/sleep/hours`
 - Headers:
     - `Accept: application/json`
     - `Content-Type: application/json`
@@ -240,7 +238,6 @@ Content-Type: application/json
 
 ```json
 {
-  "userID": 23,
   "hours": 6
 }
 ```
