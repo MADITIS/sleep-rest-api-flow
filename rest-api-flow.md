@@ -173,7 +173,7 @@ Content-Type: application/json
 }
 ```
 ---
-## 4. Set sleep time
+## 6. Set sleep time
 ### Request:
 
 - Method: `POST`
@@ -201,7 +201,7 @@ Content-Type: application/json
 }
 ```
 ---
-## 4. Set wake up time
+## 7. Set wake up time
 ### Request:
 
 - Method: `POST`
@@ -228,7 +228,7 @@ Content-Type: application/json
   "message": "wakeup time added successfully"
 }
 ```
-## 4. Post sleep hours
+## 8. Post sleep hours
 ### Request:
 
 - Method: `POST`
@@ -255,7 +255,7 @@ Content-Type: application/json
   "message": "sleep hours added successfully"
 }
 ```
-## 4. Get Sleep Efficiency
+## 9. Get Sleep Efficiency
 ### Request:
 
 - Method: `POST`
