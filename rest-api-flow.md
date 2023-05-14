@@ -1,6 +1,6 @@
-# REST API Interaction Flow
+# Rest API Interaction Flow
 
-## 1. Start the App and Enter Name:
+## 1. Create User
 
 ### Request
 
@@ -30,7 +30,7 @@ Content-Type: application/json
 
 ---
 
-## 2. Get Sleep improvements
+## 2. Get Sleep Improvements
 
 ### Request:
 
@@ -66,12 +66,14 @@ Content-Type: application/json
 ```
 ---
 
-## 3. Post Sleep improvement
+## 3. Post Sleep Improvement
 
 ### Request:
 
 - Method: `POST`
 - Endpoint: `/api/users/{userID}/improvement`
+- Parameters:
+    - `{userID}`: The ID of the user for whom the improvement is being added
 - Headers:
     - `Accept: application/json`
     - `Content-Type: application/json`
@@ -102,7 +104,7 @@ Content-Type: application/json
 }
 ```
 
-## 4. Get Sleep struggle durations
+## 4. Get Sleep Struggle Durations
 
 ### Request:
 
@@ -139,12 +141,14 @@ Content-Type: application/json
 
 ---
 
-## 5. Post sleep struggle duration
+## 5. Post Sleep Struggle Suration
 
 ### Request:
 
 - Method: `POST`
 - Endpoint: `/api/users/{userID}/struggle/duration`
+- Parameters:
+    - `{userID}`: The ID of the user for whom the struggle duration is being added
 - Headers:
     - `Accept: application/json`
     - `Content-Type: application/json`
@@ -173,11 +177,13 @@ Content-Type: application/json
 }
 ```
 ---
-## 6. Set sleep time
+## 6. Set Sleep Time
 ### Request:
 
 - Method: `POST`
 - Endpoint: `/api/users/{userID}/sleep/time`
+- Parameters:
+    - `{userID}`: The ID of the user for whom the sleep time is being added
 - Headers:
     - `Accept: application/json`
     - `Content-Type: application/json`
@@ -200,11 +206,13 @@ Content-Type: application/json
 }
 ```
 ---
-## 7. Set wake up time
+## 7. Set Wake Up Time
 ### Request:
 
 - Method: `POST`
 - Endpoint: `/api/users/{userID}/wakeup/time`
+- Parameters:
+    - `{userID}`: The ID of the user for whom the wakeup time is being added
 - Headers:
     - `Accept: application/json`
     - `Content-Type: application/json`
@@ -226,11 +234,13 @@ Content-Type: application/json
   "message": "wakeup time added successfully"
 }
 ```
-## 8. Post sleep hours
+## 8. Post Sleep Hours
 ### Request:
 
 - Method: `POST`
 - Endpoint: `/api/users/{userID}/sleep/hours`
+- Parameters:
+    - `{userID}`: The ID of the user for whom the sleep hours is being added
 - Headers:
     - `Accept: application/json`
     - `Content-Type: application/json`
@@ -257,6 +267,8 @@ Content-Type: application/json
 
 - Method: `GET`
 - Endpoint: `/api/users/{userID}/sleep/efficiency`
+- Parameters:
+    - `{userID}
 - Headers:
     - `Accept: application/json`
 
